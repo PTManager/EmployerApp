@@ -60,7 +60,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:text="₩1,420,000"
+                android:text=""
                 android:textColor="@color/white"
                 android:textSize="26sp"
                 android:textStyle="bold" />
@@ -70,7 +70,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="3dp"
-                android:text="예산 ₩2.0M · 71% 사용"
+                android:text=""
                 android:textColor="#E9DEFC"
                 android:textSize="11sp" />
         </LinearLayout>
@@ -141,21 +141,21 @@
             android:paddingVertical="4dp">
 
             <LinearLayout style="@style/CostRow">
-                <TextView style="@style/CostName" android:text="현우" />
-                <TextView style="@style/CostHours" android:text="52h" />
-                <TextView style="@style/CostAmount" android:text="₩498,000" />
+                <TextView style="@style/CostName" android:text="" />
+                <TextView style="@style/CostHours" android:text="" />
+                <TextView style="@style/CostAmount" android:text="" />
             </LinearLayout>
             <View style="@style/DetailDivider" />
             <LinearLayout style="@style/CostRow">
-                <TextView style="@style/CostName" android:text="민지" />
-                <TextView style="@style/CostHours" android:text="48h" />
-                <TextView style="@style/CostAmount" android:text="₩460,000" />
+                <TextView style="@style/CostName" android:text="" />
+                <TextView style="@style/CostHours" android:text="" />
+                <TextView style="@style/CostAmount" android:text="" />
             </LinearLayout>
             <View style="@style/DetailDivider" />
             <LinearLayout style="@style/CostRow">
-                <TextView style="@style/CostName" android:text="지수" />
-                <TextView style="@style/CostHours" android:text="38h" />
-                <TextView style="@style/CostAmount" android:text="₩364,000" />
+                <TextView style="@style/CostName" android:text="" />
+                <TextView style="@style/CostHours" android:text="" />
+                <TextView style="@style/CostAmount" android:text="" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

@@ -64,7 +64,7 @@
                         android:id="@+id/tv_req_title"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="민지님의 대타 요청"
+                        android:text=""
                         android:textColor="@color/text_primary"
                         android:textSize="14sp"
                         android:textStyle="bold" />
@@ -73,7 +73,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="2dp"
-                        android:text="승인 대기 · 2시간 전"
+                        android:text=""
                         android:textColor="@color/warn_orange"
                         android:textSize="10sp"
                         android:textStyle="bold" />
@@ -89,22 +89,22 @@
 
                 <LinearLayout style="@style/DetailRow">
                     <TextView style="@style/DetailKey" android:text="근무" />
-                    <TextView android:id="@+id/tv_shift" style="@style/DetailVal" android:text="12/3 (수) 14:00–18:00" />
+                    <TextView android:id="@+id/tv_shift" style="@style/DetailVal" android:text="" />
                 </LinearLayout>
                 <View style="@style/DetailDivider" />
                 <LinearLayout style="@style/DetailRow">
                     <TextView style="@style/DetailKey" android:text="근무지" />
-                    <TextView style="@style/DetailVal" android:text="강남점 · 홀" />
+                    <TextView style="@style/DetailVal" android:text="" />
                 </LinearLayout>
                 <View style="@style/DetailDivider" />
                 <LinearLayout style="@style/DetailRow">
                     <TextView style="@style/DetailKey" android:text="요청 대상" />
-                    <TextView style="@style/DetailVal" android:text="전체 공개" />
+                    <TextView style="@style/DetailVal" android:text="" />
                 </LinearLayout>
                 <View style="@style/DetailDivider" />
                 <LinearLayout style="@style/DetailRow">
                     <TextView style="@style/DetailKey" android:text="지원자" />
-                    <TextView android:id="@+id/tv_applicants" style="@style/DetailVal" android:text="없음" />
+                    <TextView android:id="@+id/tv_applicants" style="@style/DetailVal" android:text="" />
                 </LinearLayout>
             </LinearLayout>
 
@@ -114,7 +114,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:background="@drawable/bg_soft_gray"
-                android:text="사유 · 개인 사정으로 어려워요"
+                android:text=""
                 android:textColor="@color/text_secondary"
                 android:textSize="11sp"
                 android:padding="11dp" />

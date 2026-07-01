@@ -49,7 +49,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="12월 스케줄 확정 안내"
+                android:text=""
                 android:textColor="@color/text_primary"
                 android:textSize="20sp"
                 android:textStyle="bold" />
@@ -58,7 +58,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="사장님 · 2026.06.25 09:12"
+                android:text=""
                 android:textColor="@color/text_hint"
                 android:textSize="12sp" />
 
@@ -72,7 +72,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="안녕하세요, 강남점 사장입니다.\n\n12월 근무표가 확정되었습니다. 각자 스케줄 탭에서 본인 근무를 확인해 주시고, 변경이 필요한 경우 대타 요청 기능을 이용해 주세요.\n\n연말 성수기로 평소보다 바쁠 예정이니 출근 시간 꼭 지켜주시기 바랍니다. 감사합니다."
+                android:text=""
                 android:textColor="#333333"
                 android:textSize="14sp"
                 android:lineSpacingMultiplier="1.5" />
@@ -81,7 +81,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
-                android:text="읽음 8 · 안 읽음 2"
+                android:text=""
                 android:textColor="@color/text_tertiary"
                 android:textSize="12sp"
                 android:textStyle="bold" />

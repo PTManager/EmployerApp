@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <TextView android:id="@+id/tv_title" style="@style/NotiTitle" android:text="알림" />
+    <TextView android:id="@+id/tv_title" style="@style/NotiTitle" android:text="" />
     <TextView android:id="@+id/tv_body" style="@style/NotiBody" android:text="" />
     <TextView android:id="@+id/tv_time" style="@style/NotiTime" android:text="" />
 </LinearLayout>

@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <TextView android:id="@+id/tv_name" style="@style/CostName" android:text="이름" />
-    <TextView android:id="@+id/tv_hours" style="@style/CostHours" android:text="0h" />
-    <TextView android:id="@+id/tv_amount" style="@style/CostAmount" android:text="₩0" />
+    <TextView android:id="@+id/tv_name" style="@style/CostName" android:text="" />
+    <TextView android:id="@+id/tv_hours" style="@style/CostHours" android:text="" />
+    <TextView android:id="@+id/tv_amount" style="@style/CostAmount" android:text="" />
 </LinearLayout>

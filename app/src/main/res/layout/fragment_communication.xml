@@ -84,7 +84,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="⚠ 12월 스케줄 확정"
+                    android:text=""
                     android:textColor="@color/text_primary"
                     android:textSize="13sp"
                     android:textStyle="bold" />
@@ -92,7 +92,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="필독 · 읽음 4/6"
+                    android:text=""
                     android:textColor="@color/warn_orange"
                     android:textSize="10sp"
                     android:textStyle="bold" />
@@ -102,7 +102,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="6dp"
-                android:text="12월 근무표가 확정되었습니다."
+                android:text=""
                 android:textColor="@color/text_secondary"
                 android:textSize="11sp" />
         </LinearLayout>
@@ -119,7 +119,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="연말 영업시간 변경"
+                android:text=""
                 android:textColor="@color/text_primary"
                 android:textSize="13sp"
                 android:textStyle="bold" />
@@ -128,7 +128,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="나 · 어제 · 읽음 6/6"
+                android:text=""
                 android:textColor="@color/text_hint"
                 android:textSize="10sp" />
         </LinearLayout>
@@ -145,7 +145,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="유니폼 세탁 안내"
+                android:text=""
                 android:textColor="@color/text_primary"
                 android:textSize="13sp"
                 android:textStyle="bold" />
@@ -154,7 +154,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="나 · 3일 전 · 읽음 6/6"
+                android:text=""
                 android:textColor="@color/text_hint"
                 android:textSize="10sp" />
         </LinearLayout>

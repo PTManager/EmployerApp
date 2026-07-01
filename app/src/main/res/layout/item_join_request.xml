@@ -18,7 +18,7 @@
             android:id="@+id/tv_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="신청자"
+            android:text=""
             android:textColor="@color/text_primary"
             android:textSize="14sp"
             android:textStyle="bold" />
@@ -28,7 +28,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="3dp"
-            android:text="매장 참여 신청"
+            android:text=""
             android:textColor="@color/text_tertiary"
             android:textSize="11sp" />
     </LinearLayout>

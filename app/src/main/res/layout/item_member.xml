@@ -7,7 +7,7 @@
     <View style="@style/MemberAvatar" />
 
     <LinearLayout style="@style/MemberMeta">
-        <TextView android:id="@+id/tv_name" style="@style/MemberName" android:text="이름" />
-        <TextView android:id="@+id/tv_sub" style="@style/MemberSub" android:text="역할" />
+        <TextView android:id="@+id/tv_name" style="@style/MemberName" android:text="" />
+        <TextView android:id="@+id/tv_sub" style="@style/MemberSub" android:text="" />
     </LinearLayout>
 </LinearLayout>

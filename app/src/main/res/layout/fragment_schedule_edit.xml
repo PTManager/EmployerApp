@@ -79,34 +79,34 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="18dp"
-            android:text="12월 3일 수요일 · 근무 3타임"
+            android:text=""
             android:textColor="@color/text_tertiary"
             android:textSize="11sp"
             android:textStyle="bold" />
 
         <!-- shift 1 오픈 -->
         <LinearLayout style="@style/ShiftRow" android:background="@drawable/bg_schedule_active">
-            <TextView style="@style/ShiftTime" android:text="09:00 – 14:00 · 오픈" />
+            <TextView style="@style/ShiftTime" android:text="" />
             <LinearLayout style="@style/ShiftChips">
-                <TextView style="@style/WorkerChip" android:text="현우" />
+                <TextView style="@style/WorkerChip" android:text="" />
             </LinearLayout>
         </LinearLayout>
 
         <!-- shift 2 홀 -->
         <LinearLayout style="@style/ShiftRow" android:background="@drawable/bg_schedule_active">
-            <TextView style="@style/ShiftTime" android:text="14:00 – 18:00 · 홀" />
+            <TextView style="@style/ShiftTime" android:text="" />
             <LinearLayout style="@style/ShiftChips">
-                <TextView style="@style/WorkerChip" android:text="민지" />
-                <TextView style="@style/WorkerChip" android:text="현우" />
+                <TextView style="@style/WorkerChip" android:text="" />
+                <TextView style="@style/WorkerChip" android:text="" />
             </LinearLayout>
         </LinearLayout>
 
         <!-- shift 3 마감 (미배정) -->
         <LinearLayout style="@style/ShiftRow" android:background="@drawable/bg_schedule_muted">
-            <TextView style="@style/ShiftTime" android:text="18:00 – 22:00 · 마감"
+            <TextView style="@style/ShiftTime" android:text=""
                 android:textColor="#555555" />
             <LinearLayout style="@style/ShiftChips">
-                <TextView style="@style/WorkerChipEmpty" android:text="+ 배정 필요" />
+                <TextView style="@style/WorkerChipEmpty" android:text="" />
             </LinearLayout>
         </LinearLayout>
 
