@@ -1,5 +1,8 @@
 package com.example.ptmanageremployer
 
+import android.content.ClipData
+import android.content.ClipboardManager
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -35,6 +38,7 @@ class MyFragment : Fragment() {
         view.findViewById<View>(R.id.row_members).setOnClickListener {
             startActivity(Intent(requireContext(), MembersActivity::class.java))
         }
+        view.findViewById<View>(R.id.row_invite).setOnClickListener { showInviteCode() }
         view.findViewById<View>(R.id.row_qr).setOnClickListener {
             startActivity(Intent(requireContext(), QrDisplayActivity::class.java))
         }
@@ -50,6 +54,45 @@ class MyFragment : Fragment() {
                 i.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                 startActivity(i)
             }
+        }
+    }
+
+    /** 매장 초대코드를 조회(GET /api/workplaces/{id})해 표시하고 복사/공유를 제공한다. */
+    private fun showInviteCode() {
+        val workplaceId = TokenStore.workplaceId
+        if (workplaceId <= 0) {
+            Toast.makeText(requireContext(), "소속 매장이 없습니다.", Toast.LENGTH_SHORT).show()
+            return
+        }
+        lifecycleScope.launch {
+            val workplace = runCatching { Network.api.getWorkplace(workplaceId) }.getOrNull()
+            val code = workplace?.inviteCode
+            if (code.isNullOrBlank()) {
+                Toast.makeText(requireContext(), "초대코드를 불러오지 못했습니다.", Toast.LENGTH_SHORT).show()
+                return@launch
+            }
+            AlertDialog.Builder(requireContext())
+                .setTitle("매장 초대코드")
+                .setMessage("알바에게 이 코드를 공유하세요.\n\n$code")
+                .setPositiveButton("복사") { _, _ ->
+                    val clipboard =
+                        requireContext().getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+                    clipboard.setPrimaryClip(ClipData.newPlainText("초대코드", code))
+                    Toast.makeText(requireContext(), "초대코드를 복사했어요", Toast.LENGTH_SHORT).show()
+                }
+                .setNeutralButton("공유") { _, _ ->
+                    val share = Intent(Intent.ACTION_SEND).apply {
+                        type = "text/plain"
+                        putExtra(
+                            Intent.EXTRA_TEXT,
+                            "[${workplace.name ?: "매장"}] 초대코드: $code\n" +
+                                "PTManager 직원 앱에서 이 코드로 매장에 참여하세요.",
+                        )
+                    }
+                    startActivity(Intent.createChooser(share, "초대코드 공유"))
+                }
+                .setNegativeButton("닫기", null)
+                .show()
         }
     }
 

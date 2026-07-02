@@ -115,6 +115,7 @@
             <TextView android:id="@+id/row_profile" style="@style/MenuRow" android:text="프로필 수정" />
             <TextView android:id="@+id/row_labor" style="@style/MenuRow" android:text="인건비 확인" />
             <TextView android:id="@+id/row_members" style="@style/MenuRow" android:text="매장 멤버 / 승인 관리" />
+            <TextView android:id="@+id/row_invite" style="@style/MenuRow" android:text="매장 초대코드" />
             <TextView android:id="@+id/row_qr" style="@style/MenuRow" android:text="출근 QR 표시" />
             <TextView android:id="@+id/row_noti" style="@style/MenuRow" android:text="알림 설정" />
             <TextView android:id="@+id/row_logout" style="@style/MenuRow" android:text="로그아웃" android:textColor="@color/accent_red" />
