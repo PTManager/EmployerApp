@@ -227,6 +227,17 @@ data class PayrollSummary(
     val items: List<PayrollItem> = emptyList(),
 )
 
+data class WeeklyCost(
+    val week: Int = 0,
+    val amount: Long = 0,
+)
+
+data class WeeklyPayrollSummary(
+    val workplaceId: Long? = null,
+    val yearMonth: String? = null,
+    val weeks: List<WeeklyCost> = emptyList(),
+)
+
 // ---- 공통 페이지 응답 ----
 data class PageResponse<T>(
     val content: List<T> = emptyList(),

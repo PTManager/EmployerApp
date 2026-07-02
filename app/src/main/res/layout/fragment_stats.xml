@@ -30,6 +30,7 @@
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/tv_month_selector"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="12월 ▾"
@@ -100,11 +101,10 @@
                 android:gravity="bottom"
                 android:baselineAligned="false">
 
-                <View style="@style/Bar" android:layout_height="50dp" />
-                <View style="@style/Bar" android:layout_height="68dp" />
-                <View style="@style/Bar" android:layout_height="40dp" />
-                <View style="@style/Bar" android:layout_height="62dp"
-                    android:background="@drawable/bg_bar_active" />
+                <View android:id="@+id/bar_w1" style="@style/Bar" android:layout_height="6dp" />
+                <View android:id="@+id/bar_w2" style="@style/Bar" android:layout_height="6dp" />
+                <View android:id="@+id/bar_w3" style="@style/Bar" android:layout_height="6dp" />
+                <View android:id="@+id/bar_w4" style="@style/Bar" android:layout_height="6dp" />
             </LinearLayout>
 
             <LinearLayout
@@ -114,10 +114,10 @@
                 android:orientation="horizontal"
                 android:baselineAligned="false">
 
-                <TextView style="@style/ChartDay" android:text="1주" />
-                <TextView style="@style/ChartDay" android:text="2주" />
-                <TextView style="@style/ChartDay" android:text="3주" />
-                <TextView style="@style/ChartDay" android:text="4주" android:textColor="@color/brand" />
+                <TextView android:id="@+id/tv_w1" style="@style/ChartDay" android:text="1주" />
+                <TextView android:id="@+id/tv_w2" style="@style/ChartDay" android:text="2주" />
+                <TextView android:id="@+id/tv_w3" style="@style/ChartDay" android:text="3주" />
+                <TextView android:id="@+id/tv_w4" style="@style/ChartDay" android:text="4주" />
             </LinearLayout>
         </LinearLayout>
 
@@ -132,6 +132,7 @@
             android:textStyle="bold" />
 
         <LinearLayout
+            android:id="@+id/cost_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -140,23 +141,16 @@
             android:paddingHorizontal="14dp"
             android:paddingVertical="4dp">
 
-            <LinearLayout style="@style/CostRow">
-                <TextView style="@style/CostName" android:text="" />
-                <TextView style="@style/CostHours" android:text="" />
-                <TextView style="@style/CostAmount" android:text="" />
-            </LinearLayout>
-            <View style="@style/DetailDivider" />
-            <LinearLayout style="@style/CostRow">
-                <TextView style="@style/CostName" android:text="" />
-                <TextView style="@style/CostHours" android:text="" />
-                <TextView style="@style/CostAmount" android:text="" />
-            </LinearLayout>
-            <View style="@style/DetailDivider" />
-            <LinearLayout style="@style/CostRow">
-                <TextView style="@style/CostName" android:text="" />
-                <TextView style="@style/CostHours" android:text="" />
-                <TextView style="@style/CostAmount" android:text="" />
-            </LinearLayout>
+            <TextView
+                android:id="@+id/tv_cost_empty"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingVertical="18dp"
+                android:gravity="center"
+                android:text="집계된 인건비가 없습니다."
+                android:textColor="@color/text_hint"
+                android:textSize="12sp"
+                android:visibility="gone" />
         </LinearLayout>
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>

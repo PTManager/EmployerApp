@@ -142,6 +142,12 @@ interface ApiService {
         @Query("yearMonth") yearMonth: String,
     ): PayrollSummary
 
+    @GET("api/payroll/weekly")
+    suspend fun getWeeklyPayroll(
+        @Query("workplaceId") workplaceId: Long,
+        @Query("yearMonth") yearMonth: String,
+    ): WeeklyPayrollSummary
+
     // ---- 매장 QR / 시급 ----
     @GET("api/workplaces/{id}/qr-token")
     suspend fun getQrToken(@Path("id") id: Long): QrTokenResponse
