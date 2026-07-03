@@ -342,5 +342,19 @@
             android:gravity="center"
             android:paddingVertical="13dp"
             android:foreground="?attr/selectableItemBackground" />
+
+        <TextView
+            android:id="@+id/btn_handover_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="9dp"
+            android:background="@drawable/bg_btn_outline_gray"
+            android:text="인수인계 노트"
+            android:textColor="@color/text_secondary"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:paddingVertical="13dp"
+            android:foreground="?attr/selectableItemBackground" />
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>

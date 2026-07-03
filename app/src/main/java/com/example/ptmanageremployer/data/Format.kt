@@ -10,6 +10,14 @@ object Extras {
     const val SWAP_REQUEST_ID = "extra_swap_request_id"
 }
 
+/** 인수인계 카테고리 코드 → 한글 태그 라벨. (STOCK/DEVICE/CUSTOMER) */
+fun handoverCategoryLabel(code: String?): String = when (code) {
+    "STOCK" -> "#재고"
+    "DEVICE" -> "#기기오류"
+    "CUSTOMER" -> "#손님"
+    else -> "#기타"
+}
+
 /** "18:00:00" + "23:00:00" → "18:00 – 23:00" */
 fun shiftTimeRange(start: String?, end: String?): String {
     val s = start?.take(5).orEmpty()

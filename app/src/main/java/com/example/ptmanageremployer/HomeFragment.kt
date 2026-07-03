@@ -37,6 +37,9 @@ class HomeFragment : Fragment() {
         view.findViewById<View>(R.id.btn_notice_list).setOnClickListener {
             startActivity(Intent(requireContext(), NoticeListActivity::class.java))
         }
+        view.findViewById<View>(R.id.btn_handover_list).setOnClickListener {
+            startActivity(Intent(requireContext(), HandoverListActivity::class.java))
+        }
 
         loadDashboard(view)
     }

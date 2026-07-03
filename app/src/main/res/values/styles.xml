@@ -1,5 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- 인수인계 카테고리 필터 칩. 선택 상태는 코드에서 bg_chip_selected/outline 로 토글한다. -->
+    <style name="HandoverChip">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginEnd">8dp</item>
+        <item name="android:background">@drawable/bg_chip_outline</item>
+        <item name="android:textColor">@color/text_secondary</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:paddingHorizontal">14dp</item>
+        <item name="android:paddingVertical">7dp</item>
+        <item name="android:foreground">?attr/selectableItemBackground</item>
+    </style>
+
     <!-- Mini bar-chart bar (height set per-instance) -->
     <style name="Bar">
         <item name="android:layout_width">0dp</item>

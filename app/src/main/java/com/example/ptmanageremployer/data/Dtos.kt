@@ -168,6 +168,24 @@ data class CreateNoticeRequest(
 
 data class UnreadFlag(val hasUnread: Boolean = false)
 
+// ---- 인수인계 노트(Handover) ----
+// category: "STOCK" | "DEVICE" | "CUSTOMER"
+data class HandoverDto(
+    val id: Long,
+    val workplaceId: Long? = null,
+    val authorId: Long? = null,
+    val authorName: String? = null,
+    val category: String? = null,
+    val content: String? = null,
+    val createdAt: String? = null,
+)
+
+data class CreateHandoverRequest(
+    val workplaceId: Long,
+    val category: String,
+    val content: String,
+)
+
 // ---- 알림(Notification) ----
 data class NotificationDto(
     val id: Long,
