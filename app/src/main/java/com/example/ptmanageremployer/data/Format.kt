@@ -8,6 +8,13 @@ object Extras {
     const val SHIFT_ID = "extra_shift_id"
     const val NOTICE_ID = "extra_notice_id"
     const val SWAP_REQUEST_ID = "extra_swap_request_id"
+    const val HANDOVER_ID = "extra_handover_id"
+    const val HANDOVER_CATEGORY = "extra_handover_category"
+    const val HANDOVER_TITLE = "extra_handover_title"
+    const val HANDOVER_CONTENT = "extra_handover_content"
+    const val HANDOVER_AUTHOR_ID = "extra_handover_author_id"
+    const val HANDOVER_AUTHOR_NAME = "extra_handover_author_name"
+    const val HANDOVER_CREATED_AT = "extra_handover_created_at"
 }
 
 /** 인수인계 카테고리 코드 → 한글 태그 라벨. (STOCK/DEVICE/CUSTOMER) */

@@ -122,6 +122,9 @@ class SubFragment : Fragment() {
                     }
                     card.findViewById<TextView>(R.id.tv_meta).text = handoverMeta(note)
                     // 미리보기라 삭제는 목록 화면에서만 — btn_delete 는 기본 gone 유지.
+                    card.setOnClickListener {
+                        startActivity(Intent(requireContext(), HandoverListActivity::class.java))
+                    }
                     panel.addView(card)
                 }
             } catch (e: Exception) {

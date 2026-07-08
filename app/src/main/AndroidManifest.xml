@@ -42,6 +42,7 @@
         <activity android:name=".NoticeWriteActivity" android:exported="false" />
         <activity android:name=".HandoverListActivity" android:exported="false" />
         <activity android:name=".HandoverWriteActivity" android:exported="false" />
+        <activity android:name=".HandoverDetailActivity" android:exported="false" />
         <activity android:name=".NotificationActivity" android:exported="false" />
         <activity android:name=".ProfileEditActivity" android:exported="false" />
         <activity android:name=".MembersActivity" android:exported="false" />

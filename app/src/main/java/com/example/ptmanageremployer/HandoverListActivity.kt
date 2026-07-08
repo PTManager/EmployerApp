@@ -11,6 +11,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
+import com.example.ptmanageremployer.data.Extras
 import com.example.ptmanageremployer.data.HandoverDto
 import com.example.ptmanageremployer.data.Network
 import com.example.ptmanageremployer.data.TokenStore
@@ -104,12 +105,26 @@ class HandoverListActivity : AppCompatActivity() {
                         delete.visibility = View.VISIBLE
                         delete.setOnClickListener { confirmDelete(note) }
                     }
+                    card.setOnClickListener { openDetail(note) }
                     container.addView(card)
                 }
             } catch (e: Exception) {
                 Toast.makeText(this@HandoverListActivity, e.toUserMessage(), Toast.LENGTH_SHORT).show()
             }
         }
+    }
+
+    private fun openDetail(note: HandoverDto) {
+        startActivity(
+            Intent(this, HandoverDetailActivity::class.java)
+                .putExtra(Extras.HANDOVER_ID, note.id)
+                .putExtra(Extras.HANDOVER_CATEGORY, note.category)
+                .putExtra(Extras.HANDOVER_TITLE, note.title)
+                .putExtra(Extras.HANDOVER_CONTENT, note.content)
+                .putExtra(Extras.HANDOVER_AUTHOR_ID, note.authorId ?: -1L)
+                .putExtra(Extras.HANDOVER_AUTHOR_NAME, note.authorName)
+                .putExtra(Extras.HANDOVER_CREATED_AT, note.createdAt)
+        )
     }
 
     private fun confirmDelete(note: HandoverDto) {
