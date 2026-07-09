@@ -80,3 +80,17 @@ fun attendanceLabel(status: String?): String = when (status) {
 /** 1234567 → "₩1,234,567" */
 fun won(amount: Long): String =
     "₩" + NumberFormat.getNumberInstance(Locale.KOREA).format(amount)
+
+/** 공지 카드 메타: "작성자 · yyyy-MM-dd" */
+fun noticeMeta(notice: NoticeDto): String {
+    val author = notice.authorName ?: "사장님"
+    val date = notice.createdAt?.take(10) ?: ""
+    return listOf(author, date).filter { it.isNotBlank() }.joinToString(" · ")
+}
+
+/** 인수인계 카드 메타: "작성자 · yyyy-MM-dd" */
+fun handoverMeta(note: HandoverDto): String {
+    val author = note.authorName ?: "작성자"
+    val date = note.createdAt?.take(10) ?: ""
+    return listOf(author, date).filter { it.isNotBlank() }.joinToString(" · ")
+}

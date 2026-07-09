@@ -5,7 +5,7 @@
     android:layout_marginTop="10dp"
     android:orientation="vertical"
     android:background="@drawable/bg_card"
-    android:padding="14dp"
+    android:padding="16dp"
     android:foreground="?attr/selectableItemBackground">
 
     <LinearLayout
@@ -21,7 +21,7 @@
             android:layout_weight="1"
             android:text=""
             android:textColor="@color/text_primary"
-            android:textSize="14sp"
+            android:textSize="15sp"
             android:textStyle="bold" />
 
         <TextView
@@ -43,5 +43,5 @@
         android:layout_marginTop="6dp"
         android:text=""
         android:textColor="@color/text_tertiary"
-        android:textSize="11sp" />
+        android:textSize="12sp" />
 </LinearLayout>

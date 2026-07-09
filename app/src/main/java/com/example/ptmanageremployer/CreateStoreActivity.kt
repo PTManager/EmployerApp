@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.View
 import android.widget.EditText
 import android.widget.TextView
-import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
@@ -32,7 +31,7 @@ class CreateStoreActivity : AppCompatActivity() {
         findViewById<TextView>(R.id.btn_create).setOnClickListener { btn ->
             val name = nameInput.text.toString().trim()
             if (name.isEmpty()) {
-                Toast.makeText(this, "매장 이름을 입력해 주세요.", Toast.LENGTH_SHORT).show()
+                toast("매장 이름을 입력해 주세요.")
                 return@setOnClickListener
             }
             val address = typeInput.text.toString().trim().ifBlank { null }
@@ -45,7 +44,7 @@ class CreateStoreActivity : AppCompatActivity() {
                     inputState.visibility = View.GONE
                     codeState.visibility = View.VISIBLE
                 } catch (e: Exception) {
-                    Toast.makeText(this@CreateStoreActivity, e.toUserMessage(), Toast.LENGTH_SHORT).show()
+                    toast(e.toUserMessage())
                     btn.isEnabled = true
                 }
             }

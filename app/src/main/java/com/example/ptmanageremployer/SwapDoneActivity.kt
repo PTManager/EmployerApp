@@ -6,18 +6,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.widget.LinearLayout
 import android.widget.TextView
-import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import androidx.lifecycle.lifecycleScope
 import com.example.ptmanageremployer.data.Extras
 import com.example.ptmanageremployer.data.Network
 import com.example.ptmanageremployer.data.SwapRequestDto
 import com.example.ptmanageremployer.data.TokenStore
 import com.example.ptmanageremployer.data.shiftTimeRange
 import com.example.ptmanageremployer.data.toUserMessage
-import kotlinx.coroutines.launch
 
 /**
  * 대타요청 화면. view=all 로 전체를 받아 대기 중(PENDING)은 상단에 탭 가능한 카드로,
@@ -42,51 +39,45 @@ class SwapDoneActivity : AppCompatActivity() {
         val workplaceId = TokenStore.workplaceId
         val container = findViewById<LinearLayout>(R.id.swap_done_container)
         val empty = findViewById<TextView>(R.id.tv_swap_done_empty)
-        for (i in container.childCount - 1 downTo 0) {
-            if (container.getChildAt(i).id != R.id.tv_swap_done_empty) container.removeViewAt(i)
-        }
+        container.removeAllExcept(R.id.tv_swap_done_empty)
         if (workplaceId <= 0) {
             empty.visibility = View.VISIBLE
             return
         }
-        lifecycleScope.launch {
-            try {
-                val all = Network.api.getSwapRequests(workplaceId, view = "all")
-                val pending = all.filter { it.status == "PENDING" }
-                val done = all.filter { it.status == "APPROVED" || it.status == "REJECTED" }
-                empty.visibility = if (pending.isEmpty() && done.isEmpty()) View.VISIBLE else View.GONE
-                val inflater = LayoutInflater.from(this@SwapDoneActivity)
-                // 대기 중(직원 대타요청) — 탭하면 승인 화면으로.
-                pending.forEach { req ->
-                    val card = inflater.inflate(R.layout.item_swap_request, container, false)
-                    card.findViewById<TextView>(R.id.tv_title).text = shiftTitle(req)
-                    card.findViewById<TextView>(R.id.tv_sub).text = req.reason ?: "사유 없음"
-                    card.findViewById<TextView>(R.id.tv_badge).text = "지원자 확인 →"
-                    card.setOnClickListener {
-                        startActivity(
-                            Intent(this@SwapDoneActivity, SubApprovalActivity::class.java)
-                                .putExtra(Extras.SWAP_REQUEST_ID, req.id)
-                        )
-                    }
-                    container.addView(card)
-                }
-                // 처리 완료(승인/거절) — 읽기 전용.
-                done.forEach { req ->
-                    val card = inflater.inflate(R.layout.item_swap_request, container, false)
-                    card.findViewById<TextView>(R.id.tv_title).text = shiftTitle(req)
-                    card.findViewById<TextView>(R.id.tv_sub).text = req.reason ?: "사유 없음"
-                    val badge = card.findViewById<TextView>(R.id.tv_badge)
-                    badge.text = statusLabel(req.status)
-                    badge.setTextColor(
-                        ContextCompat.getColor(
-                            this@SwapDoneActivity,
-                            if (req.status == "APPROVED") R.color.accent_green else R.color.accent_red,
-                        )
+        launchApi {
+            val all = Network.api.getSwapRequests(workplaceId, view = "all")
+            val pending = all.filter { it.status == "PENDING" }
+            val done = all.filter { it.status == "APPROVED" || it.status == "REJECTED" }
+            empty.visibility = if (pending.isEmpty() && done.isEmpty()) View.VISIBLE else View.GONE
+            val inflater = LayoutInflater.from(this@SwapDoneActivity)
+            // 대기 중(직원 대타요청) — 탭하면 승인 화면으로.
+            pending.forEach { req ->
+                val card = inflater.inflate(R.layout.item_swap_request, container, false)
+                card.findViewById<TextView>(R.id.tv_title).text = shiftTitle(req)
+                card.findViewById<TextView>(R.id.tv_sub).text = req.reason ?: "사유 없음"
+                card.findViewById<TextView>(R.id.tv_badge).text = "지원자 확인 →"
+                card.setOnClickListener {
+                    startActivity(
+                        Intent(this@SwapDoneActivity, SubApprovalActivity::class.java)
+                            .putExtra(Extras.SWAP_REQUEST_ID, req.id)
                     )
-                    container.addView(card)
                 }
-            } catch (e: Exception) {
-                Toast.makeText(this@SwapDoneActivity, e.toUserMessage(), Toast.LENGTH_SHORT).show()
+                container.addView(card)
+            }
+            // 처리 완료(승인/거절) — 읽기 전용.
+            done.forEach { req ->
+                val card = inflater.inflate(R.layout.item_swap_request, container, false)
+                card.findViewById<TextView>(R.id.tv_title).text = shiftTitle(req)
+                card.findViewById<TextView>(R.id.tv_sub).text = req.reason ?: "사유 없음"
+                val badge = card.findViewById<TextView>(R.id.tv_badge)
+                badge.text = statusLabel(req.status)
+                badge.setTextColor(
+                    ContextCompat.getColor(
+                        this@SwapDoneActivity,
+                        if (req.status == "APPROVED") R.color.accent_green else R.color.accent_red,
+                    )
+                )
+                container.addView(card)
             }
         }
     }

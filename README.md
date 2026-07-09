@@ -4,7 +4,7 @@
 
 공통 백엔드([PTManagerBackend](../PTManagerBackend), Spring Boot · JWT)에 연결되어 매장 생성부터 근무 편성·대타 승인·가입 승인·인건비 집계까지 실제 REST API로 동작합니다. (RBAC로 사장 전용 API 강제)
 
-> 알바(직원)용은 [PTManagerEmployee](../PTManagerEmployee)를 참고하세요. 같은 백엔드·데이터를 공유하되 화면은 역할별로 분리되어 있으며, 사장 앱은 **보라(#7048E8)** 테마입니다.
+> 알바(직원)용은 [PTManagerEmployee](../PTManagerEmployee)를 참고하세요. 같은 백엔드·데이터를 공유하되 화면은 역할별로 분리되어 있으며, 사장 앱은 **보라(#7048E8)**를 메인 컬러로 사용합니다.
 
 ## 화면 구성 (하단 5탭)
 

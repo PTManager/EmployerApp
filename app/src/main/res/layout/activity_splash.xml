@@ -25,6 +25,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="6dp"
         android:text="함께 일하기, 더 쉽게"
-        android:textColor="#D6E4FF"
+        android:textColor="@color/brand_border"
         android:textSize="13sp" />
 </LinearLayout>

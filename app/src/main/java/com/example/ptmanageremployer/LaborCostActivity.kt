@@ -5,15 +5,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.widget.LinearLayout
 import android.widget.TextView
-import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.lifecycleScope
 import com.example.ptmanageremployer.data.Network
 import com.example.ptmanageremployer.data.TokenStore
 import com.example.ptmanageremployer.data.toUserMessage
 import com.example.ptmanageremployer.data.won
-import kotlinx.coroutines.launch
 import java.time.LocalDate
 
 class LaborCostActivity : AppCompatActivity() {
@@ -37,26 +34,22 @@ class LaborCostActivity : AppCompatActivity() {
             empty.visibility = View.VISIBLE
             return
         }
-        lifecycleScope.launch {
-            try {
-                val payroll = Network.api.getPayroll(workplaceId, yearMonth)
-                findViewById<TextView>(R.id.tv_total).text = won(payroll.totalAmount)
-                if (payroll.items.isEmpty()) {
-                    empty.visibility = View.VISIBLE
-                    return@launch
-                }
-                val inflater = LayoutInflater.from(this@LaborCostActivity)
-                payroll.items.forEach { item ->
-                    val row = inflater.inflate(R.layout.item_cost_row, container, false)
-                    row.findViewById<TextView>(R.id.tv_name).text =
-                        item.employeeName ?: "직원 #${item.employeeId}"
-                    val hours = (item.workedMinutes ?: 0) / 60
-                    row.findViewById<TextView>(R.id.tv_hours).text = "${hours}h"
-                    row.findViewById<TextView>(R.id.tv_amount).text = won(item.amount ?: 0)
-                    container.addView(row)
-                }
-            } catch (e: Exception) {
-                Toast.makeText(this@LaborCostActivity, e.toUserMessage(), Toast.LENGTH_SHORT).show()
+        launchApi {
+            val payroll = Network.api.getPayroll(workplaceId, yearMonth)
+            findViewById<TextView>(R.id.tv_total).text = won(payroll.totalAmount)
+            if (payroll.items.isEmpty()) {
+                empty.visibility = View.VISIBLE
+                return@launchApi
+            }
+            val inflater = LayoutInflater.from(this@LaborCostActivity)
+            payroll.items.forEach { item ->
+                val row = inflater.inflate(R.layout.item_cost_row, container, false)
+                row.findViewById<TextView>(R.id.tv_name).text =
+                    item.employeeName ?: "직원 #${item.employeeId}"
+                val hours = (item.workedMinutes ?: 0) / 60
+                row.findViewById<TextView>(R.id.tv_hours).text = "${hours}h"
+                row.findViewById<TextView>(R.id.tv_amount).text = won(item.amount ?: 0)
+                container.addView(row)
             }
         }
     }

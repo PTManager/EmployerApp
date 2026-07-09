@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.View
 import android.widget.EditText
 import android.widget.TextView
-import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
@@ -28,7 +27,7 @@ class ProfileEditActivity : AppCompatActivity() {
         findViewById<TextView>(R.id.btn_save).setOnClickListener { btn ->
             val name = nameInput.text.toString().trim()
             if (name.isEmpty()) {
-                Toast.makeText(this, "이름을 입력해 주세요.", Toast.LENGTH_SHORT).show()
+                toast("이름을 입력해 주세요.")
                 return@setOnClickListener
             }
             btn.isEnabled = false
@@ -36,10 +35,10 @@ class ProfileEditActivity : AppCompatActivity() {
                 try {
                     val updated = Network.api.updateProfile(UpdateProfileRequest(name))
                     TokenStore.updateUser(updated)
-                    Toast.makeText(this@ProfileEditActivity, "저장되었습니다", Toast.LENGTH_SHORT).show()
+                    toast("저장되었습니다")
                     finish()
                 } catch (e: Exception) {
-                    Toast.makeText(this@ProfileEditActivity, e.toUserMessage(), Toast.LENGTH_SHORT).show()
+                    toast(e.toUserMessage())
                     btn.isEnabled = true
                 }
             }

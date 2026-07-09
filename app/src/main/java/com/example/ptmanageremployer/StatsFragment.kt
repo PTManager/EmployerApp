@@ -86,9 +86,7 @@ class StatsFragment : Fragment() {
             view.findViewById<TextView>(R.id.tv_month_total).text = won(payroll.totalAmount)
 
             // 플레이스홀더/이전 결과 제거 후 실제 항목으로 채운다. (empty 뷰는 유지)
-            for (i in container.childCount - 1 downTo 0) {
-                if (container.getChildAt(i).id != R.id.tv_cost_empty) container.removeViewAt(i)
-            }
+            container.removeAllExcept(R.id.tv_cost_empty)
             if (payroll.items.isEmpty()) {
                 empty.visibility = View.VISIBLE
                 return@launch

@@ -11,7 +11,6 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
-import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
@@ -35,7 +34,7 @@ class NoticeDetailActivity : AppCompatActivity() {
 
         val noticeId = intent.getLongExtra(Extras.NOTICE_ID, -1)
         if (noticeId <= 0) {
-            Toast.makeText(this, "공지를 찾을 수 없습니다.", Toast.LENGTH_SHORT).show()
+            toast("공지를 찾을 수 없습니다.")
             finish()
             return
         }
@@ -51,7 +50,7 @@ class NoticeDetailActivity : AppCompatActivity() {
                 findViewById<TextView>(R.id.tv_body).text = notice.body ?: ""
                 renderAttachments(notice.attachments.orEmpty())
             } catch (e: Exception) {
-                Toast.makeText(this@NoticeDetailActivity, e.toUserMessage(), Toast.LENGTH_SHORT).show()
+                toast(e.toUserMessage())
                 finish()
             }
         }
@@ -97,7 +96,7 @@ class NoticeDetailActivity : AppCompatActivity() {
     private fun downloadFile(fileUrl: String, fileName: String) {
         val uri = runCatching { Uri.parse(fileUrl) }.getOrNull()
         if (uri == null || uri.scheme !in setOf("http", "https")) {
-            Toast.makeText(this, "다운로드할 수 없는 파일입니다.", Toast.LENGTH_SHORT).show()
+            toast("다운로드할 수 없는 파일입니다.")
             return
         }
         try {
@@ -108,9 +107,9 @@ class NoticeDetailActivity : AppCompatActivity() {
                 setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, fileName)
             }
             (getSystemService(Context.DOWNLOAD_SERVICE) as DownloadManager).enqueue(request)
-            Toast.makeText(this, "다운로드를 시작합니다.", Toast.LENGTH_SHORT).show()
+            toast("다운로드를 시작합니다.")
         } catch (e: Exception) {
-            Toast.makeText(this, "다운로드에 실패했습니다.", Toast.LENGTH_SHORT).show()
+            toast("다운로드에 실패했습니다.")
         }
     }
 

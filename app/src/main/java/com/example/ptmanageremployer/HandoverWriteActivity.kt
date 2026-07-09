@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.View
 import android.widget.EditText
 import android.widget.TextView
-import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
@@ -48,16 +47,16 @@ class HandoverWriteActivity : AppCompatActivity() {
             val title = titleInput.text.toString().trim()
             val content = contentInput.text.toString().trim()
             if (title.isEmpty()) {
-                Toast.makeText(this, "제목을 입력해 주세요.", Toast.LENGTH_SHORT).show()
+                toast("제목을 입력해 주세요.")
                 return@setOnClickListener
             }
             if (content.isEmpty()) {
-                Toast.makeText(this, "내용을 입력해 주세요.", Toast.LENGTH_SHORT).show()
+                toast("내용을 입력해 주세요.")
                 return@setOnClickListener
             }
             val workplaceId = TokenStore.workplaceId
             if (workplaceId <= 0) {
-                Toast.makeText(this, "소속 매장이 없습니다.", Toast.LENGTH_SHORT).show()
+                toast("소속 매장이 없습니다.")
                 return@setOnClickListener
             }
             btn.isEnabled = false
@@ -66,10 +65,10 @@ class HandoverWriteActivity : AppCompatActivity() {
                     Network.api.createHandover(
                         CreateHandoverRequest(workplaceId, selectedCategory, title, content),
                     )
-                    Toast.makeText(this@HandoverWriteActivity, "등록했어요", Toast.LENGTH_SHORT).show()
+                    toast("등록했어요")
                     finish()
                 } catch (e: Exception) {
-                    Toast.makeText(this@HandoverWriteActivity, e.toUserMessage(), Toast.LENGTH_SHORT).show()
+                    toast(e.toUserMessage())
                     btn.isEnabled = true
                 }
             }

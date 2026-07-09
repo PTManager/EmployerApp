@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
@@ -86,7 +85,7 @@ class MyFragment : Fragment() {
         lifecycleScope.launch {
             val s = runCatching { Network.api.getNotificationSetting() }.getOrNull()
             if (s == null) {
-                Toast.makeText(requireContext(), "알림 설정을 불러오지 못했습니다.", Toast.LENGTH_SHORT).show()
+                toast("알림 설정을 불러오지 못했습니다.")
                 return@launch
             }
             val labels = arrayOf("대타 알림", "공지 알림", "출퇴근 알림", "가입 신청 알림")
@@ -103,9 +102,9 @@ class MyFragment : Fragment() {
                                 NotificationSettingUpdate(checked[0], checked[1], checked[2], checked[3]),
                             )
                         }.onSuccess {
-                            Toast.makeText(requireContext(), "알림 설정을 저장했어요", Toast.LENGTH_SHORT).show()
+                            toast("알림 설정을 저장했어요")
                         }.onFailure {
-                            Toast.makeText(requireContext(), it.toUserMessage(), Toast.LENGTH_SHORT).show()
+                            toast(it.toUserMessage())
                         }
                     }
                 }

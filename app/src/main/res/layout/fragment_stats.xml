@@ -2,16 +2,16 @@
 <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@color/surface_gray"
     android:fillViewport="true">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingHorizontal="16dp"
-        android:paddingTop="16dp"
-        android:paddingBottom="24dp">
+        android:paddingHorizontal="24dp"
+        android:paddingTop="36dp"
+        android:paddingBottom="28dp">
 
         <!-- header -->
         <LinearLayout
@@ -26,20 +26,20 @@
                 android:layout_weight="1"
                 android:text="급여"
                 android:textColor="@color/text_primary"
-                android:textSize="18sp"
+                android:textSize="22sp"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/tv_month_selector"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/bg_input"
+                android:background="@drawable/bg_badge_approved"
                 android:text="12월 ▾"
                 android:textColor="@color/brand"
                 android:textSize="15sp"
                 android:textStyle="bold"
-                android:paddingHorizontal="14dp"
-                android:paddingVertical="8dp"
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="7dp"
                 android:foreground="?attr/selectableItemBackground" />
         </LinearLayout>
 
@@ -47,60 +47,60 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="14dp"
+            android:layout_marginTop="22dp"
             android:orientation="vertical"
             android:background="@drawable/bg_today_card"
-            android:padding="16dp">
+            android:padding="24dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="이번 달 누적"
                 android:textColor="@color/brand_border"
-                android:textSize="11sp"
+                android:textSize="13sp"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/tv_month_total"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="12dp"
                 android:text=""
                 android:textColor="@color/white"
-                android:textSize="26sp"
+                android:textSize="32sp"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/tv_month_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="3dp"
+                android:layout_marginTop="10dp"
                 android:text=""
                 android:textColor="@color/brand_border"
-                android:textSize="11sp" />
+                android:textSize="14sp" />
         </LinearLayout>
 
         <!-- 주차별 추이 -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="14dp"
+            android:layout_marginTop="16dp"
             android:orientation="vertical"
             android:background="@drawable/bg_card"
-            android:padding="14dp">
+            android:padding="18dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="주차별 추이"
-                android:textColor="@color/text_tertiary"
-                android:textSize="11sp"
+                android:textColor="@color/text_primary"
+                android:textSize="16sp"
                 android:textStyle="bold" />
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:layout_marginTop="12dp"
+                android:layout_height="92dp"
+                android:layout_marginTop="16dp"
                 android:orientation="horizontal"
                 android:gravity="bottom"
                 android:baselineAligned="false">
@@ -114,7 +114,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
+                android:layout_marginTop="8dp"
                 android:orientation="horizontal"
                 android:baselineAligned="false">
 
@@ -131,8 +131,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:text="직원별 인건비"
-            android:textColor="#444444"
-            android:textSize="13sp"
+            android:textColor="@color/text_primary"
+            android:textSize="16sp"
             android:textStyle="bold" />
 
         <LinearLayout
@@ -142,7 +142,7 @@
             android:layout_marginTop="10dp"
             android:orientation="vertical"
             android:background="@drawable/bg_card"
-            android:paddingHorizontal="14dp"
+            android:paddingHorizontal="18dp"
             android:paddingVertical="4dp">
 
             <TextView

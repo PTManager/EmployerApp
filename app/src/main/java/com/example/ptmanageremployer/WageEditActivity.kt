@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.View
 import android.widget.EditText
 import android.widget.TextView
-import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
@@ -40,18 +39,18 @@ class WageEditActivity : AppCompatActivity() {
         findViewById<TextView>(R.id.btn_save).setOnClickListener { btn ->
             val value = input.text.toString().toIntOrNull()
             if (value == null || value < 0) {
-                Toast.makeText(this, "올바른 금액을 입력해 주세요.", Toast.LENGTH_SHORT).show()
+                toast("올바른 금액을 입력해 주세요.")
                 return@setOnClickListener
             }
             btn.isEnabled = false
             lifecycleScope.launch {
                 try {
                     Network.api.updateMemberWage(workplaceId, employeeId, UpdateWageRequest(value))
-                    Toast.makeText(this@WageEditActivity, "시급을 저장했어요", Toast.LENGTH_SHORT).show()
+                    toast("시급을 저장했어요")
                     setResult(RESULT_OK)
                     finish()
                 } catch (e: Exception) {
-                    Toast.makeText(this@WageEditActivity, e.toUserMessage(), Toast.LENGTH_SHORT).show()
+                    toast(e.toUserMessage())
                     btn.isEnabled = true
                 }
             }

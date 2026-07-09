@@ -10,7 +10,6 @@ import android.view.WindowManager
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
-import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -117,18 +116,14 @@ class QrDisplayActivity : AppCompatActivity() {
         // 고정 모드일 때만 뒤로가기를 삼켜 화면을 벗어나지 못하게 한다.
         backGuard = object : OnBackPressedCallback(false) {
             override fun handleOnBackPressed() {
-                Toast.makeText(
-                    this@QrDisplayActivity,
-                    "고정 모드입니다. 잠금 버튼을 길게 눌러 해제하세요.",
-                    Toast.LENGTH_SHORT
-                ).show()
+                toast("고정 모드입니다. 잠금 버튼을 길게 눌러 해제하세요.")
             }
         }
         onBackPressedDispatcher.addCallback(this, backGuard)
 
         val workplaceId = TokenStore.workplaceId
         if (workplaceId <= 0) {
-            Toast.makeText(this, "소속 매장이 없습니다.", Toast.LENGTH_SHORT).show()
+            toast("소속 매장이 없습니다.")
             finish()
             return
         }
@@ -164,7 +159,7 @@ class QrDisplayActivity : AppCompatActivity() {
         setSystemBarsVisible(false)
         lockButton.text = "🔓  길게 눌러 잠금 해제"
         lockButton.applyLockButtonStyle(true, ContextCompat.getColor(this, R.color.brand))
-        Toast.makeText(this, "고정 모드 시작 — 버튼을 길게 누르면 해제됩니다.", Toast.LENGTH_LONG).show()
+        toast("고정 모드 시작 — 버튼을 길게 누르면 해제됩니다.", long = true)
     }
 
     private fun exitLock() {

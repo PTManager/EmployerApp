@@ -3,9 +3,7 @@ package com.example.ptmanageremployer
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
-import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.example.ptmanageremployer.data.Extras
@@ -51,22 +49,17 @@ class HandoverDetailActivity : AppCompatActivity() {
     }
 
     private fun confirmDelete() {
-        AlertDialog.Builder(this)
-            .setTitle("인수인계 삭제")
-            .setMessage("이 노트를 삭제할까요?")
-            .setPositiveButton("삭제") { _, _ ->
-                lifecycleScope.launch {
-                    runCatching { Network.api.deleteHandover(handoverId) }
-                        .onSuccess {
-                            Toast.makeText(this@HandoverDetailActivity, "삭제했어요", Toast.LENGTH_SHORT).show()
-                            finish()
-                        }
-                        .onFailure {
-                            Toast.makeText(this@HandoverDetailActivity, it.toUserMessage(), Toast.LENGTH_SHORT).show()
-                        }
-                }
+        confirm("인수인계 삭제", "이 노트를 삭제할까요?", "삭제") {
+            lifecycleScope.launch {
+                runCatching { Network.api.deleteHandover(handoverId) }
+                    .onSuccess {
+                        toast("삭제했어요")
+                        finish()
+                    }
+                    .onFailure {
+                        toast(it.toUserMessage())
+                    }
             }
-            .setNegativeButton("취소", null)
-            .show()
+        }
     }
 }

@@ -3,9 +3,15 @@
     <style name="Base.Theme.PTManagerEmployer" parent="Theme.Material3.Light.NoActionBar">
         <item name="colorPrimary">@color/brand</item>
         <item name="colorOnPrimary">@color/white</item>
+        <item name="colorPrimaryContainer">@color/brand_bg</item>
+        <item name="colorOnPrimaryContainer">@color/ink</item>
+        <item name="colorSecondaryContainer">@color/brand_chip</item>
+        <item name="colorOnSecondaryContainer">@color/brand</item>
         <item name="colorSurface">@color/white</item>
         <item name="colorOnSurface">@color/text_primary</item>
         <item name="android:colorBackground">@color/white</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:colorAccent">@color/brand</item>
         <item name="android:statusBarColor">@color/white</item>
         <item name="android:navigationBarColor">@color/white</item>
         <item name="android:windowLightStatusBar">true</item>
@@ -16,7 +22,8 @@
 
     <style name="Text.Title" parent="">
         <item name="android:textColor">@color/text_primary</item>
-        <item name="android:textSize">16sp</item>
-        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">21sp</item>
+        <item name="android:textFontWeight">600</item>
+        <item name="android:letterSpacing">-0.01</item>
     </style>
 </resources>

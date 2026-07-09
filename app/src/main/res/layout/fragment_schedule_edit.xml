@@ -2,16 +2,16 @@
 <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@color/surface_gray"
     android:fillViewport="true">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingHorizontal="16dp"
-        android:paddingTop="16dp"
-        android:paddingBottom="24dp">
+        android:paddingHorizontal="24dp"
+        android:paddingTop="36dp"
+        android:paddingBottom="28dp">
 
         <!-- 제목 + 오늘 이동 -->
         <LinearLayout
@@ -26,16 +26,17 @@
                 android:layout_weight="1"
                 android:text="스케줄"
                 android:textColor="@color/text_primary"
-                android:textSize="18sp"
+                android:textSize="22sp"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/btn_this_week"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:paddingHorizontal="6dp"
-                android:paddingVertical="2dp"
+                android:background="@drawable/bg_badge_approved"
+                android:foreground="?attr/selectableItemBackgroundBorderless"
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="7dp"
                 android:text="오늘"
                 android:textColor="@color/brand"
                 android:textSize="12sp"
@@ -46,17 +47,16 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="16dp"
             android:orientation="horizontal"
             android:gravity="center_vertical">
 
             <TextView
                 android:id="@+id/btn_prev_week"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:background="?attr/selectableItemBackgroundBorderless"
-                android:paddingHorizontal="10dp"
-                android:paddingVertical="4dp"
+                android:gravity="center"
                 android:text="‹"
                 android:textColor="@color/text_primary"
                 android:textSize="22sp" />
@@ -74,11 +74,10 @@
 
             <TextView
                 android:id="@+id/btn_next_week"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:background="?attr/selectableItemBackgroundBorderless"
-                android:paddingHorizontal="10dp"
-                android:paddingVertical="4dp"
+                android:gravity="center"
                 android:text="›"
                 android:textColor="@color/text_primary"
                 android:textSize="22sp" />
@@ -91,7 +90,7 @@
             android:layout_marginTop="12dp"
             android:orientation="vertical"
             android:background="@drawable/bg_card_tinted"
-            android:padding="14dp">
+            android:padding="18dp">
 
             <TextView
                 android:id="@+id/tv_week_summary"

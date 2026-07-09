@@ -9,7 +9,8 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:background="@drawable/bg_card"
-    android:paddingHorizontal="14dp">
+    android:paddingHorizontal="14dp"
+    android:paddingVertical="2dp">
 
     <!-- 공지 -->
     <LinearLayout

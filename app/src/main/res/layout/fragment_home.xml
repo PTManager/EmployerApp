@@ -2,16 +2,16 @@
 <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@color/surface_gray"
     android:fillViewport="true">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingHorizontal="16dp"
-        android:paddingTop="16dp"
-        android:paddingBottom="24dp">
+        android:paddingHorizontal="24dp"
+        android:paddingTop="36dp"
+        android:paddingBottom="28dp">
 
         <!-- store header + role chip -->
         <LinearLayout
@@ -27,12 +27,12 @@
                 android:layout_weight="1"
                 android:text=""
                 android:textColor="@color/text_primary"
-                android:textSize="18sp"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="42dp"
+                android:layout_height="42dp"
                 android:background="@drawable/bg_pill"
                 android:text="사장님 ▾"
                 android:textColor="@color/brand"
@@ -48,9 +48,9 @@
 
                 <ImageView
                     android:id="@+id/btn_bell"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:padding="8dp"
+                    android:layout_width="42dp"
+                    android:layout_height="42dp"
+                    android:padding="9dp"
                     android:src="@drawable/ic_bell"
                     android:background="?attr/selectableItemBackgroundBorderless"
                     android:contentDescription="알림" />
@@ -60,8 +60,8 @@
                     android:layout_width="9dp"
                     android:layout_height="9dp"
                     android:layout_gravity="top|end"
-                    android:layout_marginTop="7dp"
-                    android:layout_marginEnd="7dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
                     android:background="@drawable/bg_dot_red"
                     android:visibility="gone" />
             </FrameLayout>
@@ -72,10 +72,10 @@
             android:id="@+id/card_now_working"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="14dp"
+            android:layout_marginTop="22dp"
             android:orientation="vertical"
             android:background="@drawable/bg_today_card"
-            android:padding="18dp"
+            android:padding="24dp"
             android:foreground="?attr/selectableItemBackground">
 
             <LinearLayout
@@ -90,7 +90,7 @@
                     android:layout_weight="1"
                     android:text="지금 근무 중"
                     android:textColor="@color/brand_border"
-                    android:textSize="11sp"
+                    android:textSize="13sp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -106,35 +106,34 @@
                 android:id="@+id/tv_now_count"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
+                android:layout_marginTop="12dp"
                 android:text="—"
                 android:textColor="@color/white"
-                android:textSize="26sp"
+                android:textSize="28sp"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/tv_now_names"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
+                android:layout_marginTop="10dp"
                 android:text=""
                 android:maxLines="2"
                 android:ellipsize="end"
                 android:textColor="@color/brand_border"
-                android:textSize="12sp" />
+                android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/btn_make_schedule"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="20dp"
                 android:background="@drawable/bg_btn_white"
                 android:text="스케줄 짜기"
                 android:textColor="@color/brand"
-                android:textSize="14sp"
+                android:textSize="15sp"
                 android:textStyle="bold"
                 android:gravity="center"
-                android:paddingVertical="12dp"
                 android:foreground="?attr/selectableItemBackground" />
         </LinearLayout>
 
@@ -143,7 +142,7 @@
             android:id="@+id/card_labor"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="14dp"
+            android:layout_marginTop="16dp"
             android:orientation="horizontal"
             android:baselineAligned="false"
             android:foreground="?attr/selectableItemBackground">
@@ -156,7 +155,7 @@
                 android:layout_marginEnd="5dp"
                 android:orientation="vertical"
                 android:background="@drawable/bg_card"
-                android:padding="13dp">
+                android:padding="16dp">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -185,7 +184,7 @@
                 android:layout_marginStart="5dp"
                 android:orientation="vertical"
                 android:background="@drawable/bg_card"
-                android:padding="13dp">
+                android:padding="16dp">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -211,10 +210,10 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="30dp"
             android:text="소식"
-            android:textColor="#444444"
-            android:textSize="13sp"
+            android:textColor="@color/text_primary"
+            android:textSize="17sp"
             android:textStyle="bold" />
 
         <include
@@ -222,6 +221,6 @@
             layout="@layout/view_home_news"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp" />
+            android:layout_marginTop="12dp" />
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>
